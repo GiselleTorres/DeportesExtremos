@@ -1,0 +1,97 @@
+<body>
+
+    <div style="text-align:center">
+        <h1>{{ title }}</h1>
+        <img width="100" alt="Logo Proyecto" src ="/assets/NCG.ico">
+      </div>
+  <!------------------------------------------------------------------------------------------------------------------->
+    <!-- para mostrar el listado de contactos -->
+    <h1 class="titulos_centro">Respuestas</h1>
+    <div class="general">
+
+        <h2>Lista de Respuestas: </h2>
+
+        <form (ngSubmit)="consultaRespuestasI()" [formGroup]="ListaRespuestas" [formGroup]="ListaRespuestas">
+
+          <button type="submit" style="margin-right: 30px" >Mostrar Lista de Respuestas</button>
+          <button (click)="LimpiarLista()" >Limpiar Lista de Respuesta</button>
+          <h2>{{TituloRespuestas}}</h2>
+          <table>
+              <thead>
+                  <th>{{TablaRespuestas[0]}}</th>
+                  <th>{{TablaRespuestas[1]}}</th>
+                  <th>{{TablaRespuestas[2]}}</th>
+                  <th>{{TablaRespuestas[3]}}</th>
+              </thead>
+
+              <tbody>
+                  <tr  *ngFor="let cat of MiRespuestas">
+
+                    <th>{{ cat.id_respuesta}} </th>
+                    <th>{{ cat.pregunta_respuesta}} </th>
+                    <th>{{ cat.valor_respuesta}} </th>
+                    <th>{{ cat.respuesta_respuesta}}</th>
+
+                  </tr>
+              </tbody>
+          </table>
+
+        </form>
+
+      </div>
+      <!--Para mostrar solo tipo Respuestas-->
+        <h2>Mostramos las respuestas seleccionadas</h2>
+
+     <!-- <div class="general">
+        <form (ngSubmit)="buscarRespuesta()" [formGroup]="filtrarRespuesta">
+              ID DE LA RESPUESTA
+              <select class="dropdown" formControlName="combofiltro" (click)="consultaRespuestasI()">
+              <option value="value1">Contacto a buscar</option>
+              <option *ngFor="let cat of comboListaRespuesta " [value]="cat.id_respuesta">
+            {{cat.respuesta_respuesta}}
+
+            <button type="submit">Buscar Respuestas</button>
+            <ul>
+            <h2>{{TituloRespuestas}}</h2>
+
+            <table class="tabBuscar">
+              <thead class="Colb">
+              <th class="b">{{TabBusRespuestas[0]}}</th>
+              <th class="b">{{TabBusRespuestas[1]}}</th>
+              <th class="b">{{TabBusRespuestas[2]}}</th>
+              <th class="b">{{TabBusRespuestas[3]}}</th>
+            </thead>
+
+            <tbody class="Filb">
+              <tr class="b" *ngFor="let cat of MiRespuestas">
+                <th class="b">{{ cat.id_respuesta}} </th>
+                <th class="b">{{ cat.pregunta_respuesta}} </th>
+                <th class="b">{{ cat.valor_respuesta}} </th>
+                <th class="b">{{ cat.respuesta_respuesta}} </th>
+              </tr>
+            </tbody>
+            </table>
+            </ul>
+        </form>
+      </div>
+    <br>
+
+  </div>-->
+  <!--------------------------------------------------------------------------------------------->
+  <!--  para Insertar Respuesta-->
+ <!-- <div class="general">
+    <h2>Registrar un Nueva respuestas</h2>-->
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!--<div class="campos_txt">
+      <form (ngSubmit)="InsertarRespuestas()" [formGroup]="InsertarGRespuestas">
+        PERSONAL
+        <select class="dropdown" formControlName="filtrarRespuesta" (click)="Filtro2()">
+           <option value="value1">Tipo de Respuesta a buscar</option>
+           <option *ngFor="let Catalogo of MiRespuestas" [value]="Catalogo.id_respuestas">
+            {{Catalogo.respuesta_respuesta}}
+          </option>
+        </select>
+        <br><br>
+      -->
+              <h3> <a routerLink = "/Inicio"> VOLVER A MENU INICIO </a> </h3>
+

@@ -1,0 +1,178 @@
+<body>
+
+  <div style="text-align:center">
+    <h1>{{ title }}</h1>
+    <img width="100" alt="Logo Proyecto" src="/assets/NCG.ico">
+  </div>
+
+  <br><br><br><br>
+
+  <!--------------------------------------------------------------------------------------------->
+  <!-- para mostrar el listado de el catalogo -->
+  <h1 class="titulos_centro">Catalogo</h1>
+  <div class="general">
+
+    <h2>Lista de los Catalogos</h2>
+    
+    <form (ngSubmit)="consultaCatalogos(1)" [formGroup]="ListaCatalogo" [formGroup]="ListaCatalogo">
+
+      <button type="submit" style="margin-right: 30px">Mostrar Lista de Catalogos</button>
+      <button (click)="LimpiarLista()">Limpiar Lista de Catalogos</button>
+      <h2>{{TituloCatalogos}}</h2>
+      <table>
+        <thead>
+          <th>{{TablaCatalogos[0]}}</th>
+          <th>{{TablaCatalogos[1]}}</th>
+          <th>{{TablaCatalogos[2]}}</th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let cat of Catalogos">
+
+            <th>{{ cat.id_catalogo_universal}} </th>
+            <th>{{ cat.Denominacion_catalogo_universal}} </th>
+            <th>{{ cat.descripcion_catalogo_universal}} </th>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </form>
+
+  </div>
+
+ <!--------------------------------------------------------------------------------------------->
+  <!-- para mostrar el un solo Tipo de Documento -->
+
+  <div class="general">
+    <h2>Mostramos el catalogo seleccionado</h2>
+
+    <div class="campos_txt">
+      <form (ngSubmit)="buscarCatalogo()" [formGroup]="filtrarCatalogo">
+        ID DEL CATALOGO PARA MOSTRAR
+        <select class="dropdown" formControlName="combofiltro" (click)="listarCatalogoE(1)">
+      
+          <!-- <option value="value1">Tipo de Documento a buscar</option> -->
+          
+          <option *ngFor="let Catalogo of catauniCatalogo" [value]="Catalogo.id_catalogo_universal">
+            {{Catalogo.id_catalogo_universal}}
+          </option>
+        </select>
+        <br><br>
+        <button type="submit">Buscar Catalogos</button>
+        <ul>
+          <h2>{{TituloCatalogo}}</h2>
+
+          <table class="tabBuscar">
+            <thead class="Colb">
+              <th class="b">{{TabBusCatalogo[0]}}</th>
+              <th class="b">{{TabBusCatalogo[1]}}</th>
+              <th class="b">{{TabBusCatalogo[2]}}</th>
+            </thead>
+
+            <tbody class="Filb">
+              <tr class="b" *ngFor="let cat of MiCatalogo">
+                <th class="b">{{ cat.id_catalogo_universal}} </th>
+                <th class="b">{{ cat.Denominacion_catalogo_universal}} </th>
+                <th class="b">{{ cat.descripcion_catalogo_universal}} </th>
+              </tr>
+            </tbody>
+
+          </table>
+        </ul>
+      </form>
+    </div>
+    <br>
+  </div>
+
+
+  <!--------------------------------------------------------------------------------------------->
+  <!-- para crear un  Tipo de documento -->
+
+  <div class="general">
+    <h2>Registrar un Nuevo Catalogo</h2>
+
+    <div class="campos_txt"> 
+      <form (ngSubmit)="InsertarCatalogo()"   [formGroup]="InsertarGCatalogo">
+
+        DENOMINACION
+        <label for="CCatalogo"><input type="text" name="CCatalogo" id="CCatalogo"
+            formControlName="textNuevoCatalogo"></label>
+
+        <br><br>
+
+        DESCRIPCIÓN
+        <label for="DescCatalogo"><input type="text" name="DescCatalogo" id="DescCatalogo" 
+          formControlName="textNuevoCatalogo1"></label>
+  
+        <br><br>
+
+        TIPO CATALOGO
+        <select class="dropdown" formControlName="filTipoCatalogo" (click)="listarCatalogoE(1)">
+          <!--<option value="value1">Tipo de catalogo a buscar</option>--> 
+          <option *ngFor="let Catalogo of catauniCatalogo" [value]="Catalogo.id_catalogo_universal">
+            {{Catalogo.Denominacion_catalogo_universal}}-
+            {{Catalogo.tipo_catalogo_catalogo_universal}} 
+          </option>
+        </select>
+        <br><br>
+        <button type="submit">Insertar Catalogo</button>
+
+      </form>
+    </div>
+    <br>
+
+  </div>
+
+  <!--------------------------------------------------------------------------------------------->
+  <!-- para actualizar un tipo de documento -->
+
+  <div class="general">
+    <h2> Catalogo a Editar</h2>
+    <div class="campos_txt">
+      <form (ngSubmit)="buscarEditarCatalogo()" [formGroup]="ActualizarACatalogo">
+
+        ID CATALOGO A EDITAR:
+        <select class="dropdown" formControlName="BuscarIdCatalogoe" (click)="consultaCatalogos(2)">
+         <option value="value1">Tipos</option> 
+          <option *ngFor="let catalogo of comboListaCatalogo" [value]="catalogo.id_catalogo_universal">
+            {{catalogo.id_catalogo_universal}} -
+            {{catalogo.tipo_catalogo_catalogo_universal}}
+            {{catalogo.Denominacion_catalogo_universal}} -
+            {{catalogo.descripcion_catalogo_universal}}
+          </option>
+        </select>
+        <br><br>
+        <button type="submit">Buscar Catalogo a Editar</button>
+        <h2>{{TituloCatalogoEdit}}</h2>
+        <li>
+
+          TIPO CATALOGO
+          <label for="Ecat"><input type="text" name="Ecat" id="Ecat" 
+            formControlName="textnuevoCatalogoe"></label>
+          <br><br>
+
+          DENOMINACION CATALOGO
+          <label for="InCatalogo"><input type="text" name="InCatalogo" id="InCatalogo"
+              formControlName="filtnuevoTIPO_CATALOGOe"></label>
+          <br><br>
+
+          DESCRIPCION CATALOGO
+          <label for="desCatalogo"><input type="text" name="desCatalogo" id="desCatalogo"
+            formControlName="textnuevoCatalogo1e"></label>
+        <br><br>
+
+        <li>
+        <button (click)="ActualizarCatalogo()">Actualizar</button>
+      </form>
+    </div>
+    <br>
+
+  </div>
+
+  <!--*************************************************************************-->
+  <!-- se incluye el link para la otra página -->
+  <div>
+    <h3 class="titulos_centro"> <a routerLink="/Inicio"> VOLVER A MENU INICIO </a> </h3>
+  </div>
+</body>

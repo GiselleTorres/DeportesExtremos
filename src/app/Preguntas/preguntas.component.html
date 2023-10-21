@@ -1,0 +1,151 @@
+<body>
+
+    <div style="text-align:center">
+      <h1>{{ title }}</h1>
+      <img width="100" alt="Logo Proyecto" src="/assets/NCG.ico">
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------->
+    <!-- para mostrar el listado de Preguntas -->
+    <h1 class="titulos_centro">Preguntas</h1>
+    <div class="general">
+  
+      <h2>Lista de Preguntas </h2>
+  
+      <form (ngSubmit)="consultaPreguntas(1)" [formGroup]="ListaPreguntas" [formGroup]="ListaPreguntas">
+  
+        <button type="submit" style="margin-right: 30px">Mostrar Lista de Preguntas</button>;
+        <button (click)="LimpiarLista()">Limpiar Lista de Preguntas</button>
+        <h2>{{TituloPreguntas}}</h2>
+        <table>
+          <thead>
+            <th>{{TablaPreguntas[0]}}</th>
+            <th>{{TablaPreguntas[1]}}</th>
+            <th>{{TablaPreguntas[2]}}</th>
+          </thead>
+          
+          <tbody>
+            <tr *ngFor="let cat of Preguntass">
+  
+              <th>{{ cat.id_preguntas}} </th>
+              <th>{{ cat.pregunta}} </th>
+              <th>{{ cat.tipo_pregunta}}</th>
+            </tr>
+          </tbody>
+        </table>
+  
+      </form>
+  
+    </div>
+  
+    <!--  para mostrar el un solo Tipo de Pregunta-->
+  
+    <div class="general">
+      <h2>Mostramos las Preguntas seleccionadas: </h2>
+  
+      <div class="campos_txt">
+        <form (ngSubmit)="buscarPreguntas()" [formGroup]="filtrarPreguntas">
+          ID DE LA PREGUNTA PARA MOSTRAR
+          <select class="dropdown" formControlName="combofiltro" (click)="listarPreguntassE(1)">
+            <!-- <option value="value1">Pregunta a buscar</option> -->
+            <option *ngFor="let cat of comboListaPreguntas " [value]="cat.id_preguntas">
+              {{cat.PREGUNTA}}
+            </option>
+          </select>
+  
+          <br><br>
+  
+          <button type="submit">Buscar Pregunta</button>
+          <ul>
+            <h2>{{TituloPregunta}}</h2>
+  
+            <table class="tabBuscar">
+              <thead class="Colb">
+                <th class="b">{{TabBusPreguntas[0]}}</th>
+                <th class="b">{{TabBusPreguntas[1]}}</th>
+                <th class="b">{{TabBusPreguntas[2]}}</th>
+              </thead>
+  
+              <tbody class="Filb">
+                <tr class="b" *ngFor="let cat of MiPreguntas">
+                  <th class="b">{{ cat.ID_PERSONAL}} </th>
+                  <th class="b">{{ cat.PREGUNTA}} </th>
+                  <th class="b">{{ cat.tipo_pregunta}} </th>
+                </tr>
+              </tbody>
+            </table>
+          </ul>
+        </form>
+      </div>
+  
+  
+  
+      <br>
+    </div>
+    <!--------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------------->
+    <!--  para Insertar un Contacto-->
+    <div class="general">
+      <br><br>
+      <h2>Registrar una nueva Pregunta</h2>
+  
+      <div class="campos_txt">
+        <form (ngSubmit)="InsertarGPreguntass()" [formGroup]="InsertarGPreguntas">
+  
+          PREGUNTA
+          <label for="CPregunta"><input type="text" name="CPregunta" id="CPregunta" formControlName="textNombre1"></label>
+          <br><br>
+          TIPO PREGUNTA
+          <select class="dropdown" formControlName="filtnuevoTIPO_Preguntase" (click)="listarPreguntassE(1)"></select>
+            <!-- <option value="value1">Tipo de documento a buscar</option> -->
+            <option *ngFor="let Catalogo of catapreguntas" [value]="Catalogo.ID_CATALOGO">
+              {{Catalogo.RESPUESTAS}}
+            </option>          
+          <br><br>
+          <button type="submit">Insertar Pregunta</button>
+        </form>
+      </div>
+      <br>
+    </div>
+    <!--------------- ACTUALIZAR UNA PREGUNTA ------------------------------------------------------>
+    <!--------------------------------------------------------------------------------------------->
+    <div class="general">
+      <h2> PREGUNTAS A EDITAR</h2>
+        <div class="campos_txt">
+        <form (ngSubmit)="buscarEditarPreguntas()" [formGroup]="ActualizarAPreguntas">
+
+          ID PREGUNTAS A EDITAR:
+          <select class="dropdown" formControlName="BuscarID_Preguntas" (click)="consultaPreguntas(2)">
+             <option value="value1">Tipos</option> 
+             <option *ngFor="let Preguntas of comboListaPreguntas" [value]="Preguntas.id_preguntas">
+              {{Preguntas.id_preguntas}} -
+              {{Preguntas.pregunta}}
+              {{Preguntas.Tipo_Preguntas}} -
+            </option>
+            </select>
+            <br><br>
+            <button type="submit">Buscar Pregunta a Editar</button>
+            <h2>{{TituloPreguntasEdit}}</h2>
+            <li>
+    
+              TIPO PREGUNTAS
+              <label for="Ecat"><input type="text" name="Ecat" id="Ecat" 
+                formControlName="textnuevoPreguntase"></label>
+              <br><br>
+    
+              DENOMINACION PREGUNTA
+              <label for="InsertarGPreguntas"><input type="text" name="InsertarGPreguntas" id="InsertarGPreguntas"
+                  formControlName="filtnuevoTIPO_Preguntase"></label>
+              <br><br>
+    
+              DESCRIPCION PREGUNTAS
+              <label for="descripcion_Preguntas"><input type="text" name="descripcion_Preguntas" id="descripcion_Preguntas"
+                formControlName="textnuevoPreguntas1e"></label>
+            <br><br>
+    
+                  
+      <!--*************************************************************************-->
+      <!-- se incluye el link para la otra página -->
+      <div>
+        <h3 class="titulos_centro"> <a routerLink="/Inicio"> VOLVER A MENU INICIO </a> </h3>
+      </div>
+    

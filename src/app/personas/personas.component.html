@@ -1,0 +1,290 @@
+<body>
+
+  <div style="text-align:center">
+    <h1>{{ title }}</h1>
+    <img width="100" alt="Logo Proyecto" src="/assets/NCG.ico">
+  </div>
+  <!------------------------------------------------------------------------------------------------------------------->
+  <!-- para mostrar el listado de Personals -->
+  <h1 class="titulos_centro">Personas</h1>
+  <div class="general">
+
+    <h2>Lista de Personas </h2>
+
+    <form (ngSubmit)="consultaPersonals(1)" [formGroup]="ListaPersonal" [formGroup]="ListaPersonal">
+
+      <button type="submit" style="margin-right: 30px">Mostrar Lista de Personal</button>
+      <button (click)="LimpiarLista()">Limpiar Lista de Personas</button>
+      <h2>{{TituloPersonals}}</h2>
+      <table>
+        <thead>
+          <th>{{TablaPersonals[0]}}</th>
+          <th>{{TablaPersonals[1]}}</th>
+          <th>{{TablaPersonals[2]}}</th>
+          <th>{{TablaPersonals[3]}}</th>
+          <th>{{TablaPersonals[4]}}</th>
+          <th>{{TablaPersonals[5]}}</th>
+          <th>{{TablaPersonals[6]}}</th>
+          <th>{{TablaPersonals[7]}}</th>
+          <th>{{TablaPersonals[8]}}</th>
+          <th>{{TablaPersonals[9]}}</th>
+          <th>{{TablaPersonals[10]}}</th>
+          <th>{{TablaPersonals[11]}}</th>
+          <th>{{TablaPersonals[12]}}</th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let cat of Personals">
+
+            <th>{{ cat.id_persona}} </th>
+            <th>{{ cat.nombre1_persona}} </th>
+            <th>{{ cat.nombre2_persona}}</th>
+            <th>{{ cat.apellido1_persona}} </th>
+            <th>{{ cat.apellido2_persona}} </th>
+            <th>{{ cat.tipDoc_persona}} </th>
+            <th>{{ cat.numero_doc_persona}} </th>
+            <th>{{ cat.fecha_nacimiento_persona}} </th>
+            <th>{{ cat.sexo_persona}} </th>
+            <th>{{ cat.celular}} </th>
+            <th>{{ cat.email_persona}}</th>
+            <th>{{ cat.direccion_persona}} </th>
+            <th>{{ cat.tipo_persona}} </th>
+          </tr>
+        </tbody>
+      </table>
+
+    </form>
+
+  </div>
+
+
+  <!--  para mostrar el un solo Tipo de Personal-->
+  <div class="general">
+    <h2>Mostramos el Personal seleccionado: </h2>
+
+    <div class="campos_txt">
+      <form (ngSubmit)="buscarPersonal()" [formGroup]="filtrarPersonal">
+        ID DEL PERSONAL PARA MOSTRAR
+        <select class="dropdown" formControlName="combofiltro" (click)="consultaPersonals(2)">
+          <!-- <option value="value1">Personal a buscar</option> -->
+          <option *ngFor="let cat of comboListaPersonal " [value]="cat.id_persona">
+            {{cat.id_persona}}
+          </option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Buscar Personal</button>
+        <ul>
+          <h2>{{TituloPersonal}}</h2>
+
+          <table class="tabBuscar">
+            <thead class="Colb">
+              <th class="b">{{TabBusPersonal[0]}}</th>
+              <th class="b">{{TabBusPersonal[1]}}</th>
+              <th class="b">{{TabBusPersonal[2]}}</th>
+              <th class="b">{{TabBusPersonal[3]}}</th>
+              <th class="b">{{TabBusPersonal[4]}}</th>
+              <th class="b">{{TabBusPersonal[5]}}</th>
+              <th class="b">{{TabBusPersonal[6]}}</th>
+              <th class="b">{{TabBusPersonal[7]}}</th>
+              <th class="b">{{TabBusPersonal[8]}}</th>
+              <th class="b">{{TabBusPersonal[9]}}</th>
+              <th class="b">{{TabBusPersonal[10]}}</th>
+              <th class="b">{{TabBusPersonal[11]}}</th>
+              <th class="b">{{TabBusPersonal[12]}}</th>
+              
+            </thead>
+
+            <tbody class="Filb">
+              <tr class="b" *ngFor="let cat of MiPersonal">
+                <th class="b">{{ cat.id_persona}} </th>
+                <th class="b">{{ cat.nombre1_persona}} </th>
+                <th class="b">{{ cat.nombre2_persona}}</th>
+                <th class="b">{{ cat.apellido1_persona}} </th>
+                <th class="b">{{ cat.apellido2_persona}} </th>
+                <th class="b">{{ cat.tipDoc_persona}} </th>
+                <th class="b">{{ cat.numero_doc_persona}} </th>
+                <th class="b">{{ cat.fecha_nacimiento_persona}} </th>
+                <th class="b">{{ cat.sexo_persona}} </th>
+                <th class="b">{{ cat.celular}} </th>
+                <th class="b">{{ cat.email_persona}}</th>
+                <th class="b">{{ cat.direccion_persona}} </th>
+                <th class="b">{{ cat.tipo_persona}} </th>
+
+              </tr>
+            </tbody>
+          </table>
+        </ul>
+      </form>
+    </div>
+
+
+
+    <br>
+  </div>
+  <!--------------------------------------------------------------------------------------------->
+  <!--------------------------------------------------------------------------------------------->
+  <!--  para Insertar una persona-->
+ <!-- <div class="general">
+    <br><br>
+    <h2>Registrar una nueva persona</h2>
+
+    <div class="campos_txt">
+      <form (ngSubmit)="InsertarPersonal()" [formGroup]="InsertarGPersonal">
+
+        PRIMER NOMBRE
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textNombre1e"></label>
+        <br><br>
+
+        SEGUNDO NOMBRE
+        <label for="Cpersona"> <input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textNombre2e"></label>
+        <br><br>
+
+        PRIMER APELLIDO
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textApellido1e"></label>
+        <br><br>
+
+        SEGUNDO APELLIDO
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textApellido2e"></label>
+        <br><br>
+
+        TIPO DE DOCUMENTO
+        <select class="dropdown" formControlName="filtipdoce" (click)="Filtro1()">-->
+          <!-- <option value="value1">Tipo de documento a buscar</option> -->
+          <!--<option *ngFor="let Catalogo of catatipdoc" [value]="Catalogo.id_catalogo_universal">
+            {{Catalogo.denominacion_catalogo_universal}}
+          </option>
+        </select>
+        <br><br>
+
+        NUMERO DE DOCUMENTO
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textNumdoce"></label>
+        <br><br>
+
+        FECHA DE NACIMIENTO
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textfechanacee"></label>
+        <br><br>
+
+        SEXO
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textsexoe"></label>
+        <br><br>
+
+        NUMERO CELULAR
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textnumcele"></label>
+        <br><br>
+
+        DIRECCION DE CORREO
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textemaile"></label>
+        <br><br>
+
+        DIRECCION DE RESIDENCIA
+        <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" 
+          formControlName="textdireccione"></label>
+        <br><br>
+
+        TIPO PERSONA
+        <select class="dropdown" formControlName="filCargoe" (click)="Filtro2()">-->
+          <!-- <option disabled selected value="value1"></option> -->
+        <!--  <option *ngFor="let Catalogo of catacargo" [value]="Catalogo.id_catalogo_universal">
+            {{Catalogo.denominacion_catalogo_universal}}
+          </option>
+        </select>
+        <br><br>
+        <button type="submit">Insertar Personal</button>
+      </form>
+    </div>
+    <br>
+  </div>
+-->
+  <!--------------- ACTUALIZAR UN CONTACTO ------------------------------------------------------>
+  <!--------------------------------------------------------------------------------------------->
+  <div class="general">
+    <h2> PERSONAL A EDITAR</h2>
+
+    <div class="campos_txt">
+      <form (ngSubmit)="buscarEditarPersonal()" [formGroup]="ActualizarAPersonal">
+        ID PERSONAL A EDITAR:
+        <select class="dropdown" formControlName="BuscaridPersonal" (click)="consultaPersonals(3)">
+          <!-- <option value="value1">Tipo de Contacto a editar</option> -->
+          <option *ngFor="let cat of comboEditarPersonal" [value]="cat.ID_PERSONAL">
+            {{cat.ID_PERSONAL}} -
+            {{cat.PERSONA}}
+
+          </option>
+        </select>
+        <br><br>
+  
+        <button type="submit" (click)="Filtro1()" (click)="Filtro2()">Buscar Tipo De Contacto</button>
+  
+        <h2>{{TituloPersonal}}</h2>
+        <!---------------------------------------------------------------------------------------------------------->
+        <li *ngFor="let cat of MiPersonalE">
+  
+          PRIMER NOMBRE
+          <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" value={{cat.nombre1_persona}}
+              [(ngModel)]="cat.nombre1_persona" formControlName ="textNombre1"></label>
+          <br><br>
+
+          SEGUNDO NOMBRE
+          <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" value={{cat.nombre2_persona}}
+              [(ngModel)]="cat.nombre2_persona" formControlName="textNombre2"></label>
+          <br><br>
+
+          PRIMER APELLIDO
+          <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" value={{cat.apellido1_persona}}
+              [(ngModel)]="cat.apellido1_persona" formControlName="textApellido1"></label>
+          <br><br>
+
+          SEGUNDO APELLIDO
+          <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" value={{cat.apellido2_persona}}
+            [(ngModel)]="cat.apellido2_persona" formControlName="textApellido2"></label>
+          <br><br>
+
+          TIPO DE DOCUMENTO
+          <select class="dropdown" formControlName="filtipdoc" [(ngModel)]="cat.tipDoc_persona ">
+            <option *ngFor="let Catalogo of catatipdoc" [value]="Catalogo.id_catalogo_universal">
+              {{Catalogo.denominacion_catalogo_universal}}
+            </option>
+          </select>
+
+          NUMERO DE DOCUMENTO
+          <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" value={{cat.numero_doc_persona}}
+                [(ngModel)]="cat.numero_doc_persona" formControlName="textNumdoc"></label>
+          <br><br>
+
+          FECHA DE NACIMIENTO
+          <label for="Cpersona"><input type="text" name="Cpersona" id="Cpersona" value={{cat.numero_doc_persona}}
+                [(ngModel)]="cat.numero_doc_persona" formControlName="textNumdoc"></label>
+          <br><br>
+
+
+          <br><br>
+          CARGO_PERSONA
+          <select class="dropdown" formControlName="filtipdoc" [(ngModel)]="cat.tipo_persona ">
+            <option *ngFor="let Catalogo of catacargo" [value]="Catalogo.id_catalogo_universal">
+              {{Catalogo.denominacion_catalogo_universal}}
+            </option>
+          </select>
+          <br><br>
+          <!-- -- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+        </li>
+        <br>
+        <button (click)="ActualizarPersonal()">Actualizar</button>
+      </form>
+    </div>
+    <br>
+  </div>
+  <div>
+    <h3 class="titulos_centro"> <a routerLink="/Inicio"> VOLVER A MENU INICIO </a> </h3>
+  </div>
+</body>
