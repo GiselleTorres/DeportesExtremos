@@ -11,5 +11,4 @@ export class loginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
