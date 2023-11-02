@@ -11,7 +11,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppComponent } from './app-component/app.component';
-//import { loginComponent } from './login/login.component';
+import { loginComponent } from './login/login.component';
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
@@ -19,7 +19,6 @@ import { ServicioService } from './servicio.service';
 import { PersonasComponent } from './personas/personas.component';
 import { RespuestasComponent } from './Respuestas/respuestas.component';
 import { PreguntaComponent } from './Preguntas/preguntas.component';
-import { loginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = 
