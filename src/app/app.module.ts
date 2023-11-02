@@ -11,6 +11,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppComponent } from './app-component/app.component';
+import { loginComponent } from './login/login.component'
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component'
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
