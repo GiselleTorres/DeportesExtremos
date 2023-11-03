@@ -255,7 +255,9 @@ th.b, tr.b
 {
     border: none;
 }
-*{
+
+/*login encontrado en git
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -395,5 +397,5 @@ th.b, tr.b
   .glowIcon {
       text-shadow: 0 0 10px #00ccff;
   
-  }
+  }*/
   
