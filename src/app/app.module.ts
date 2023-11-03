@@ -11,7 +11,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppComponent } from './app-component/app.component';
-import { loginComponent } from './login/login.component';
+//import { loginComponent } from './login/login.component';
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
@@ -28,10 +28,10 @@ const appRoutes: Routes =
     pathMatch: 'prefix',
     redirectTo: 'Inicio'
   },
-  {
+  /*{
     path: 'Login',
     component: loginComponent,
-  },
+  },*/
   {
     path: 'Inicio',
     component: MenuInicioComponent,
@@ -64,7 +64,7 @@ const appRoutes: Routes =
 @NgModule({
   declarations: [
     AppComponent,
-    loginComponent,
+    //loginComponent,
     MenuInicioComponent,
     CatalogoComponent,   
     PersonasComponent,  
