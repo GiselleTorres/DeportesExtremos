@@ -19,6 +19,8 @@ import { ServicioService } from './servicio.service';
 import { PersonasComponent } from './personas/personas.component';
 import { RespuestasComponent } from './Respuestas/respuestas.component';
 import { PreguntaComponent } from './Preguntas/preguntas.component';
+import { RegisterComponent } from './users/register/register.component';
+import { LoginComponent } from './users/login/login.component';
 
 
 const appRoutes: Routes = 
@@ -69,7 +71,9 @@ const appRoutes: Routes =
     CatalogoComponent,   
     PersonasComponent,  
     RespuestasComponent,
-    PreguntaComponent
+    PreguntaComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
