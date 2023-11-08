@@ -11,7 +11,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppComponent } from './app-component/app.component';
-//import { loginComponent } from './login/login.component';
+import { LoginComponent} from './users/login/login.component';
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 
@@ -20,7 +20,7 @@ import { PersonasComponent } from './personas/personas.component';
 import { RespuestasComponent } from './Respuestas/respuestas.component';
 import { PreguntaComponent } from './Preguntas/preguntas.component';
 import { RegisterComponent } from './users/register/register.component';
-import { LoginComponent } from './users/login/login.component';
+//import { LoginComponent } from './users/login/login.component';
 
 
 const appRoutes: Routes = 
@@ -30,10 +30,10 @@ const appRoutes: Routes =
     pathMatch: 'prefix',
     redirectTo: 'Inicio'
   },
-  /*{
+  {
     path: 'Login',
-    component: loginComponent,
-  },*/
+    component: LoginComponent,
+  },
   {
     path: 'Inicio',
     component: MenuInicioComponent,
@@ -66,7 +66,7 @@ const appRoutes: Routes =
 @NgModule({
   declarations: [
     AppComponent,
-    //loginComponent,
+    LoginComponent,
     MenuInicioComponent,
     CatalogoComponent,   
     PersonasComponent,  
