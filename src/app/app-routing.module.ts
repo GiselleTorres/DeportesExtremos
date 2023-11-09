@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Injectable, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-//import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
-//import { RegisterComponent } from './users/register/register.component';
+import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
+import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './users/login/login.component';
 const routes: Routes = [
  // {path: '', component: MenuInicioComponent},
