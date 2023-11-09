@@ -5,9 +5,9 @@ import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './users/login/login.component';
 const routes: Routes = [
- // {path: '', component: MenuInicioComponent},
+  {path: '', component: MenuInicioComponent},
  // {path: '', component: RegisterComponent},
-  {path: '', component: LoginComponent}
+  //{path: '', component: LoginComponent}
 ];
 
 @NgModule({
