@@ -73,7 +73,6 @@ const appRoutes: Routes =
     RespuestasComponent,
     PreguntaComponent,
     RegisterComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
